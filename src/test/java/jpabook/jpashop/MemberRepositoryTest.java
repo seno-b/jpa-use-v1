@@ -18,21 +18,12 @@ public class MemberRepositoryTest {
     MemberRepository memberRepository;
 
     @Test
-    @Transactional
-    @Rollback(value = false)
-    public void testMember() throws Exception {
-        //given
-        Member member = new Member();
-        member.setName("MemberA");
+    public void 회원_검증(){
 
-        //when
-        Long saveId = memberRepository.save(member);
-        Member findMember = memberRepository.find(saveId);
-
-        //then
-        Assertions.assertThat(findMember.getId()).isEqualTo(member.getId());
-        Assertions.assertThat(findMember.getName()).isEqualTo(member.getName());
-        Assertions.assertThat(findMember).isEqualTo(member);
     }
 
+    @Test
+    public void 회원_중복검사(){
+
+    }
 }
