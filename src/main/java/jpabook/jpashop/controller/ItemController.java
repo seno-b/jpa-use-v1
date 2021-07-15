@@ -2,6 +2,7 @@ package jpabook.jpashop.controller;
 
 import jpabook.jpashop.domain.item.Book;
 import jpabook.jpashop.domain.item.Item;
+import jpabook.jpashop.domain.item.ItemDTO;
 import jpabook.jpashop.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -73,8 +74,14 @@ public class ItemController {
 //        book.setIsbn(form.getIsbn());
 //
 //        itemService.saveItem(book);
+        ItemDTO itemDTO = new ItemDTO();
+        itemDTO.setPrice(form.getPrice());
+        itemDTO.setName(form.getName());
+        itemDTO.setStockQuantity(form.getStockQuantity());
+        itemDTO.setAuthor(form.getAuthor());
+        itemDTO.setIsbn(form.getIsbn());
 
-        itemService.updateItem(itemId, form);
+        itemService.updateItem(itemId, itemDTO);
         return "redirect:/items";
     }
 }

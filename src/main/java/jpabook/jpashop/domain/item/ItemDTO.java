@@ -10,4 +10,6 @@ public class ItemDTO {
     private String name;
     private int price;
     private int stockQuantity;
+    private String isbn;
+    private String author;
 }
